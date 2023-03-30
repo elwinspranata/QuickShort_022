@@ -88,13 +88,33 @@ void q_short(int low, int high)
 		mov_count++;
 	}
 	//sort the list on the left of pivot using quck sort 
-	q_short(low, j - 1); 
+	q_short(low, j - 1);
 
-    //sort the list on the right of pivot using quick sort 
+	//sort the list on the right of pivot using quick sort 
 	q_short(j + 1, high);                           // Langkah 13 
 
 
 }
 
 
+void display() {
+	cout << "\n------------------" << endl;
+	cout << "Sorted Array" << endl;
+	cout << "-----------------" << endl;
 
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << "\n\nNumber of comparisions: " << cmp_count << endl;
+	cout << " Number of data movements: " << mov_count << endl;
+}
+
+int main() {
+	input();
+	//sort the array using quick sort
+	q_short(0, n - 1);
+	display();
+	system("pause");
+
+	return 0;
+}
